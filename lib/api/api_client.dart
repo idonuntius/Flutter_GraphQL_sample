@@ -1,7 +1,5 @@
 import 'package:graphql/client.dart';
 
-// final apiClientProvider = Provider<ApiClient>((ref) => ApiClientImpl());
-
 abstract class ApiClient {
   Future<GraphQLClient> getClient();
 }
