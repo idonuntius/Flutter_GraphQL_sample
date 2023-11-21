@@ -1,16 +1,13 @@
-# graphqlsample
+# FlutterのGraphQLを使ったサンプル
 
-A new Flutter project.
+## API
+ポケモンの一覧を取得できるAPIを使用する。
 
-## Getting Started
+URL: https://graphql-pokemon2.vercel.app/
 
-This project is a starting point for a Flutter application.
+## GraphQLのライブラリ
 
-A few resources to get you started if this is your first Flutter project:
+* graphql: ^5.1.1
+* web_socket_channel: 2.2.0
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+※ web_socket_channelを入れないとgraphql側でエラーが発生するため、使わないが入れる
