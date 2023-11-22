@@ -1,4 +1,5 @@
 import 'package:graphqlsample/api/pokemon_api.dart';
+import 'package:graphqlsample/model/pokemon.dart';
 import 'package:graphqlsample/model/pokemons.dart';
 
 abstract class PokemonRepository {
@@ -11,17 +12,15 @@ class PokemonRepositoryImpl implements PokemonRepository {
   @override
   Future<Pokemons> fetchPokemons() async {
     final result = await pokemonApi.fetchPokemons();
-
-    if (result.hasException) {
-      throw Exception('GraphQL error');
-    }
-
-    final data = result.data;
-
-    if (data != null) {
-      return Pokemons.fromJson(data);
-    } else {
-      return const Pokemons(values: []);
-    }
+    final list = result.pokemons
+        .map(
+          (e) => Pokemon(
+            name: e.name,
+            image: e.image,
+            types: e.types.map((e) => e).toList(),
+          ),
+        )
+        .toList();
+    return Pokemons(values: list);
   }
 }
